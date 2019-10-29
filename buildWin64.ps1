@@ -4,6 +4,7 @@ param
     [string]$vsToolset="v141"
 )
 
+$env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin"
 echo "Downloading Csound dependencies..."
 echo "vsGenerator: $vsGenerator"
 echo "vsToolset:   $vsToolset"
@@ -55,11 +56,6 @@ $targetTripletStatic = "x64-windows-static"
 vcpkg --triplet $targetTripletStatic install libflac libogg libvorbis libsndfile pthreads[core]:x64-windows
 $vcpkgTiming = (Get-Date).TimeOfDay
 
-
-#=============================================================================
-$env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin"
-
-
 dir  
 cd c:/
 Invoke-WebRequest -Uri "https://github.com/rorywalsh/cabbage/releases/download/v2.0.00/csound-windows_x64-6.13.0.zip" -OutFile "C:\csound-windows_x64-6.13.0.zip" 
@@ -69,16 +65,8 @@ dir
 cd c:/
 Invoke-WebRequest -Uri "https://cycling74.s3.amazonaws.com/download/max-sdk-8.0.3.zip" -OutFile "C:\max-sdk-8.0.3.zip"
 7z.exe x C:\max-sdk-8.0.3.zip -o"C:\max-sdk"
-dir max-sdk
-dir
-
-# Invoke-WebRequest -Uri "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.zip" -OutFile "C:\boost_1_71_0.zip"
-# 7z.exe x C:\boost_1_71_0.zip -o"C:\boost_1_71_0"
-# dir
-
 
 cd D:/a/1/s/
-dir
 
 mkdir build
 cd build
