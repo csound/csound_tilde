@@ -190,7 +190,7 @@ int CsoundObject::Compile(bool lock)
             // Set the current directory again (in case it was changed).
             SetCurDir();
 
-            if(CSOUND_SUCCESS != csoundCompile(m_csound, m_args.NumArgs(), m_args.GetArray())) {
+            if(CSOUND_SUCCESS != csoundCompile(m_csound, m_args.NumArgs(), (const char**)m_args.GetArray())) {
                 m_msg_buf.add(message::_ERROR_MSG, "csoundCompile() failed.");
             } else {
                 result = COMPILATION_SUCCESS;

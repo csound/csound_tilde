@@ -12,3 +12,11 @@ values in t_atom, rather than using atom_getlong, atom_getfloat, etc.
 
 * fixed invalue channel callback code; caused crashes when invalue opcode was
 used
+
+
+v1.1.2
+======
+
+* Project is moved out of the Csound core and into its own repository
+
+* Azure pipelines CI added
